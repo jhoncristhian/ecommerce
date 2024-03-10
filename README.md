@@ -144,3 +144,25 @@ Recursos adicionales:
 Gartner Magic Quadrant for Business Intelligence and Analytics Platforms: <se quitó una URL no válida>
 Forrester Wave™: Business Intelligence Platforms, Q1 2023: <se quitó una URL no válida>
 Espero que esta información te sea útil.
+
+borrar desde aqui:
+
+Pasos organizados para el flujo de usuario en tu aplicación web:
+
+1. Página de inicio:
+   - Mostrará los dashboards en un carrusel de imágenes.
+2. Opción de adquirir un dashboard:
+   - El usuario podrá elegir entre obtener un dashboard o registrarse directamente.
+3. Registro o inicio de sesión:
+   - Si el usuario decide registrarse, se le redirigirá al formulario de registro.
+   - Si el usuario ya está registrado, podrá iniciar sesión.
+4. Subir data:
+   - Después de registrarse o iniciar sesión, el usuario podrá subir la data de su negocio.
+5. Proceso de pago:
+   - Una vez que la data está subida, se dirigirá al usuario al proceso de pago para adquirir el dashboard.
+6. Confirmación de publicación:
+   - Después de completar el pago, se enviará una confirmación de publicación al correo electrónico del usuario.
+7. Opción de "Mi Dashboard":
+   - Si el usuario inicia sesión, tendrá acceso a la opción "Mi Dashboard".
+8. Timeline de dashboards:
+   - En "Mi Dashboard", se mostrarán los dashboards de su negocio en un timeline.

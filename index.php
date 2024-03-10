@@ -74,108 +74,84 @@ require $nav; ?>
     </div>
 </div>
 
-<div class="container most">
-    <div class="row">
-        <?php
+<section id="productos" class="slider-box">
+    <!-- <button id="anterior" class="boton-navegacion">&#10094;</button> -->
+    <ul>
+        <li>
+            <img src="src/img/dashboard1.png" alt="">
+            <div class="texto">
+               
+                <a href="product.php?id=1" class="button-rounded btn-large waves-effect waves-light">Obtener</a>
+                
+            </div>
+        </li>
+        <li>
+            <img src="src/img/dashboard4.png" alt="">
+            <div class="texto">
+            <a href="product.php?id=2" class="button-rounded btn-large waves-effect waves-light">Obtener</a>
+               
+            </div>
+        </li>
+        <li>
+            <img src="src/img/dashboard3.png" alt="">
+            <div class="texto">
+                
+                <button class="button-rounded btn-large waves-effect waves-light">Obtener</button>
+                <a href="product.php?id=3">click</a>
+            </div>
+        </li>
+        <li>
+            <img src="src/img/dashboard2.png" alt="">
+            <div class="texto">
+                <button class="button-rounded btn-large waves-effect waves-light">Obtener</button>
+                <a href="product.php?id=4">click</a>
+            </div>
+        </li>
+        <li>
+            <img src="src/img/dashboard5.png" alt="">
+            <div class="texto">
+                <button class="button-rounded btn-large waves-effect waves-light">Obtener</button>
+            </div>
+        </li>
+    </ul>
+    <!-- <button id="siguiente" class="boton-navegacion">&#10095;</button> -->
+</section>
 
-        include 'db.php';
+<section>
+<h1>Mi Informe de Power BI</h1>
+    <iframe width="800" height="600" src="models/graficos1.pbix" frameborder="0" allowFullScreen="true"></iframe>
+</section>
 
-        // selecting product available in largest quantity
-        $queryfirst = "SELECT
-    product.id as 'id',
-    product.name as 'name',
-    product.price as 'price',
-    product.thumbnail as 'thumbnail',
-    
-    SUM(command.quantity) as 'total',
-    command.statut,
-    command.id_product
-    
-    FROM product, command
-    WHERE product.id = command.id_product AND command.statut = 'paid'
-    GROUP BY product.id
-    ORDER BY SUM(command.quantity) DESC LIMIT 6";
-        $resultfirst = $connection->query($queryfirst);
-        if ($resultfirst->num_rows > 0) {
-            // output data of each row
-            while ($rowfirst = $resultfirst->fetch_assoc()) {
-
-                $id_best = $rowfirst['id'];
-                $name_best = $rowfirst['name'];
-                $price_best = $rowfirst['price'];
-                $thumbnail_best = $rowfirst['thumbnail'];
-                $totalsold = $rowfirst['total'];
-
-        ?>
-
-                <div class="col s12 m4">
-                    <div class="card hoverable animated slideInUp wow">
-                        <div class="card-image">
-                            <a href="product.php?id=<?= $id_best;  ?>">
-                            <img src="src/img/products/<?= $thumbnail_best; ?>" style="max-height:35vh;"></a>
-                            <span class="card-title red-text" style="font-size:25px;font-weight:700"><?= $name_best; ?></span>
-                            <a href="product.php?id=<?= $id_best; ?>" class="btn-floating yellow halfway-fab waves-effect waves-light right"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="card-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col s6">
-                                        <p class="white-text"><i class="left fa fa-rupee"></i> <?= $price_best; ?></p>
-                                    </div>
-                                    <div class="col s6">
-                                        <p class="white-text"><i class="left fa fa-shopping-basket"></i> <?= $totalsold; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-        <?php }
-        } ?>
-
-
+<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="src/img/dashboard1.png" alt="First slide">
     </div>
-</div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="src/img/dashboard2.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="src/img/dashboard3.png" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> -->
+
+
 <!-- <img src="src/img/banner.jpg" alt="" style="max-height:60vh;min-width:98vw;" > -->
     
-<div class="container-fluid center-align categories">
-    <a href="#category" class="button-rounded btn-large waves-effect waves-light">Categorias</a>
-    <div class="container" id="category">
-        <div class="row">
-            <?php
 
-            //get categories
-            $querycategory = "SELECT id, name, icon  FROM category";
-            $total = $connection->query($querycategory);
-            if ($total->num_rows > 0) {
-                // output data of each row
-                while ($rowcategory = $total->fetch_assoc()) {
-                    $id_category = $rowcategory['id'];
-                    $name_category = $rowcategory['name'];
-                    $icon_category = $rowcategory['icon'];
 
-            ?>
-
-                    <div class="col s12 m4">
-                        <div class="card hoverable animated slideInUp wow">
-                            <div class="card-image">
-   <a href="category.php?id=<?= $id_category; ?>">
-   <img src="src/img/<?= $icon_category; ?>.jpg" alt="" style="max-height:25vh;max-width:30vw;"></a>
-                                <span class="card-title red-text" style="font-size:20px;font-weight:700"><?= $name_category; ?></span>
-                            </div>
-                        </div>
-                    </div>
-
-            <?php }
-            } ?>
-        </div>
-    </div>
-</div>
 <!-- <img src="src/img/banner3.jpg" alt="" style="max-height:60vh;min-width:98vw;" > -->
 
-<div class="container-fluid about" id="about">
+<section class="container-fluid about" id="about">
     <div class="container">
         <div class="row">
             <div class="col s12 m4">
@@ -194,9 +170,9 @@ Bienvenido a InfraVision, tu socio en la visualización de datos y análisis est
 
         </div>
     </div>
-</div>
+</section>
 
-<div class="container contact" id="contact">
+<section class="container contact" id="contact">
     <div class="row">
         <form action="https://postmail.invotes.com/send" method="post" id="email_form" class="col s12 animated slideInUp wow">
             <h3 class="animated slideInUp wow">Contactanos</h3>
@@ -227,7 +203,7 @@ Bienvenido a InfraVision, tu socio en la visualización de datos y análisis est
             </div>
         </form>
     </div>
-</div>
+</section>
 
 <!-- <img src="src/img/banner2.jpg" alt="" style="max-height:60vh;min-width:98vw;" > -->
 
@@ -243,4 +219,29 @@ require 'includes/footer.php'; ?>
             submitButton.disabled = true;
         }, 1);
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var index = 0;
+    var slides = document.querySelectorAll("#productos ul li");
+    var totalSlides = slides.length;
+
+    document.getElementById("siguiente").addEventListener("click", function() {
+        index = (index + 1) % totalSlides;
+        actualizarCarrusel();
+    });
+
+    document.getElementById("anterior").addEventListener("click", function() {
+        index = (index - 1 + totalSlides) % totalSlides;
+        actualizarCarrusel();
+    });
+
+    function actualizarCarrusel() {
+        for (var i = 0; i < totalSlides; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[index].style.display = "block";
+    }
+});
+
+
 </script>
