@@ -42,49 +42,65 @@ require $nav;?>
             <div class="row">
 
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">C</i>
+                    <input id="icon_prefix" type="text" name="number" value='' class="validate" required>
+                    <label for="icon_prefix">Card Number</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix"></i>
+                    <input id="icon_prefix" type="text" name="number" value='' class="validate" required>
+                    <label for="icon_prefix">CVV/CVC</label>
+                </div>
+                <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
-                    <input id="icon_prefix" type="text" name="email" value='<?= $email_sess; ?>' class="validate" required>
+                    <input id="icon_prefix" type="text" name="email" value='<?= $email_sess; ?>' class="validate"
+                        required>
                     <label for="icon_prefix">Email</label>
                 </div>
 
                 <div class="input-field col s6">
                     <select class="icons" name="country" value="<?= $country_sess; ?>">
-                        <option value=""  disabled selected>Choose your country</option>
-                        <option value="India">India</option>
-                        <option value="Morocco">Morocco</option>
-                        <option value="Egypt">Egypt</option>
-                        <option value="Algeria">Algeria</option>
+                        <option value="" disabled selected>Choose your country</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Bolivia">Bolivia</option>
                     </select>
                     <label>Country</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" name="firstname" value='<?= $firstname_sess; ?>' class="validate" required>
+                    <input id="icon_prefix" type="text" name="firstname" value='<?= $firstname_sess; ?>'
+                        class="validate" required>
                     <label for="icon_prefix">First Name</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">perm_identity</i>
-                    <input id="icon_prefix" type="text" name="lastname" value='<?= $lastname_sess; ?>' class="validate" required>
+                    <input id="icon_prefix" type="text" name="lastname" value='<?= $lastname_sess; ?>' class="validate"
+                        required>
                     <label for="icon_prefix">Last Name</label>
                 </div>
 
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">business</i>
-                    <input id="icon_prefix" type="text" value='<?= $city_sess; ?>' name="city" class="validate" required>
+                    <input id="icon_prefix" type="text" value='<?= $city_sess; ?>' name="city" class="validate"
+                        required>
                     <label for="icon_prefix">City</label>
                 </div>
 
                 <div class="input-field col s6 meh">
                     <i class="material-icons prefix">location_on</i>
-                    <input id="icon_prefix" type="text" value='<?= $address_sess; ?>' name="address" class="validate" required>
+                    <input id="icon_prefix" type="text" value='<?= $address_sess; ?>' name="address" class="validate"
+                        required>
                     <label for="icon_prefix">Address</label>
                 </div>
 
                 <div class="center-align">
-                    <button type="submit" id="confirmed" name="pay" class="btn meh button-rounded waves-effect waves-light ">Pay</button>
+                    <button type="submit" id="confirmed" name="pay"
+                        class="btn meh button-rounded waves-effect waves-light ">Pay</button>
                 </div>
             </div>
         </form>

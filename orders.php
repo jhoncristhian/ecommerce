@@ -30,19 +30,21 @@ require $nav; ?>
 <div class="container scroll">
     <table class="highlight striped">
         <thead>
-        <tr>
-            <th data-field="name">Name</th>
-            <th data-field="quantity">Quantity</th>
-            <th data-field="date">Date</th>
-            <th data-field="status">Status</th>
-        </tr>
+            <tr>
+                <th data-field="name">Name</th>
+                <th data-field="quantity">Quantity</th>
+                <th data-field="date">Date</th>
+                <th data-field="status">Status</th>
+            </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
         include 'db.php';
         //get orders
         $queryorder = "SELECT command.id as id, name, quantity, dat, statut FROM command, product WHERE product.id = command.id_product and command.statut='paid' and id_user=".$_SESSION['id'];
+        echo "query".$queryorder;
         $resultorder = $connection->query($queryorder);
+
         if ($resultorder->num_rows > 0) {
             // output data of each row
             while($roworder = $resultorder->fetch_assoc()) {
@@ -52,12 +54,12 @@ require $nav; ?>
                 $dat = $roworder['dat'];
                 $statu = $roworder['statut'];
                 ?>
-                <tr>
-                    <td><?= $productname; ?></td>
-                    <td><?= $quantity; ?></td>
-                    <td><?= $dat; ?></td>
-                    <td><?= $statu; ?></td>
-                </tr>
+            <tr>
+                <td><?= $productname; ?></td>
+                <td><?= $quantity; ?></td>
+                <td><?= $dat; ?></td>
+                <td><?= $statu; ?></td>
+            </tr>
             <?php }}  ?>
         </tbody>
     </table>

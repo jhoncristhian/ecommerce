@@ -17,29 +17,30 @@ $id_product =$_GET['id'];
  require 'includes/header.php';
  require $nav;?>
 
- <div class="container-fluid product-page" id="top">
-   <div class="container current-page">
-      <nav>
-        <div class="nav-wrapper">
-          <div class="col s12">
-            <a href="index.php" class="breadcrumb">Home</a>
-            <a href="product.php?id=<? $id_product; ?>" class="breadcrumb">Product</a>
-          </div>
-        </div>
-      </nav>
+<div class="container-fluid product-page" id="top">
+    <div class="container current-page">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="index.php" class="breadcrumb">Home</a>
+                    <a href="product.php?id=<? $id_product; ?>" class="breadcrumb">Product</a>
+                </div>
+            </div>
+        </nav>
     </div>
-   </div>
+</div>
 
 
 <div class="container-fluid product">
-  <div class="container">
-   <div class="row">
-     <div class="col s12 m6">
-        <div class="card">
-          <div class="card-image">
-            <?php
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <?php
 
             include 'db.php';
+            
 
             //get products
             $queryproduct = "SELECT id, name, price, description, id_picture, thumbnail
@@ -54,11 +55,12 @@ $id_product =$_GET['id'];
               $id_pic = $rowproduct['id_picture'];
               $description = $rowproduct['description'];
               $thumbnail_product = $rowproduct['thumbnail']; }}?>
-            <img class="materialboxed" width="650" src="src/img/products/<?= $thumbnail_product; ?>" alt="" style="max-height:65vh;">
-          </div>
-        </div>
-       <div class="row">
-         <?php
+                        <img class="materialboxed" width="650" src="src/img/products/<?= $thumbnail_product; ?>" alt=""
+                            style="max-height:65vh;">
+                    </div>
+                </div>
+                <div class="row">
+                    <?php
 
          //get categories
            $querypic = "SELECT thumbnail FROM product WHERE id = '$id_pic'";
@@ -68,33 +70,38 @@ $id_product =$_GET['id'];
            while($rowpic = $total->fetch_assoc()) {
              $pics = $rowpic['thumbnail'];
           ?>
-           <div class="col s12 m4">
-             <div class="card hoverable">
-               <div class="card-image">
-                 <img class="materialboxed" width="650" src="src/img/products/<?= $pics; ?>" alt="">
-               </div>
-             </div>
-           </div>
-         <?php }} ?>
-       </div>
-     </div>
+                    <div class="col s12 m4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img class="materialboxed" width="650" src="src/img/products/<?= $pics; ?>" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <?php }} ?>
+                </div>
+            </div>
 
-     <div class="col s12 m6" style="font-size: 16px;">
-       <form method="post">
-       <h2><?= $name_product; ?></h2>
-       <div class="divider"></div>
-       <div class="stuff">
-        <h3 class="woow">Price</h3>
-        <h5>₹ <?= $price_product; ?></h5>
-           <p><?= $description; ?></p>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">shopping_basket</i>
-            <input id="icon_prefix" type="number" name="quantity" min="1" class="validate" required>
-            <label for="icon_prefix">Quantity</label>
-          </div>
+            <div class="col s12 m6" style="font-size: 16px;">
+                <form method="post">
+                    <h2><?= $name_product; ?></h2>
+                    <div class="divider"></div>
+                    <div class="stuff">
+                        <h3 class="woow">Precio Base</h3>
+                        <h5>S/. <?= $price_product; ?></h5>
+                        <p><?= $description; ?></p>
+                        <div class="input-field col s12">
+                            <i class="bi bi-pin-fill"></i>
+                            <input id="icon_prefix" type="text" name="condition" min="1" class="validate" required>
+                            <label for="icon_prefix">Requerimientos</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">cloud_upload</i>
+                            <input id="icon_prefix" type="file" name="cargar" min="1" class="validate" required
+                                accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                        </div>
 
-           <?php
 
+                        <?php
             if (isset($_POST['buy'])) {
               // check error here
                if (!isset($_SESSION['logged_in'])) {
@@ -123,14 +130,16 @@ $id_product =$_GET['id'];
 
             ?>
 
-       <div class="center-align">
-           <button type="submit" name="buy" class="btn-large meh button-rounded waves-effect waves-light ">Add to Cart</button>
-       </div>
-       </div>
-        </form>
-     </div>
-   </div>
-  </div>
+                        <div class="center-align">
+                            <button type="submit" name="buy"
+                                class="btn-large meh button-rounded waves-effect waves-light ">Agregar al
+                                carrito</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <?php
  require 'includes/secondfooter.php';

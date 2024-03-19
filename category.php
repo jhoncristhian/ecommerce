@@ -47,8 +47,9 @@ require $nav; ?>
                         $id_categorydb = $rowcategory['id'];
                         $name_category = $rowcategory['name'];
                         ?>
-                        <a href="category.php?id=<?= $id_categorydb; ?>" class='collection-item <?php if($id_categorydb == $id_category) {echo"active";} ?>' ><?= $name_category; ?></a>
-                    <?php }} ?>
+                <a href="category.php?id=<?= $id_categorydb; ?>"
+                    class='collection-item <?php if($id_categorydb == $id_category) {echo"active";} ?>'><?= $name_category; ?></a>
+                <?php }} ?>
             </div>
         </div>
 
@@ -85,36 +86,45 @@ require $nav; ?>
 
                             ?>
 
-                            <div class="col s12 m4">
-                                <div class="card hoverable animated slideInUp wow">
-                                    <div class="card-image">
-                                        <a href="product.php?id=<?= $id_product; ?>">
-                                            <img src="src/img/products/<?= $thumbnail_product; ?>" style="max-height:35vh;"></a>
-                                        <span class="card-title blue-text"><?= $name_product; ?></span>
-                                        <a href="product.php?id=<?= $id_product; ?>" class="btn-floating halfway-fab waves-effect waves-light right"><i class="material-icons">add</i></a>
-                                    </div>
-                                    <div class="card-action">
-                                        <div class="container-fluid">
-                                            <h5 class="white-text"><?= $price_product; ?> ₹</h5>
-                                        </div>
-                                    </div>
+                    <div class="col s12 m4">
+                        <div class="card hoverable animated slideInUp wow">
+                            <div class="card-image">
+                                <a href="product.php?id=<?= $id_product; ?>">
+                                    <img src="src/img/products/<?= $thumbnail_product; ?>" style="max-height:35vh;"></a>
+                                <span class="card-title blue-text"><?= $name_product; ?></span>
+                                <a href="product.php?id=<?= $id_product; ?>"
+                                    class="btn-floating halfway-fab waves-effect waves-light right"><i
+                                        class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-action">
+                                <div class="container-fluid">
+                                    <h5 class="white-text"><?= $price_product; ?> $</h5>
                                 </div>
                             </div>
-                        <?php }} ?>
+                        </div>
+                    </div>
+                    <?php }} ?>
 
                 </div>
                 <div class="center-align animated slideInUp wow">
                     <ul class="pagination <?php if($total<15){echo "hide";} ?>">
-                        <li class="<?php if($page == 1){echo 'hide';} ?>"><a href="?page=<?php echo $page-1; ?>&per-page=15"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="<?php if($page == 1){echo 'hide';} ?>"><a
+                                href="?page=<?php echo $page-1; ?>&per-page=15"><i
+                                    class="material-icons">chevron_left</i></a></li>
                         <?php for ($x=1; $x <= $pages; $x++) : $y = $x;?>
 
 
-                            <li class="waves-effect pagina  <?php if($page === $x){echo 'active';} elseif($page <  ($x +1) OR $page > ($x +1)){echo'hide';} ?>"><a href="?page=<?php echo $x; ?>&per-page=15" ><?php echo $x; ?></a></li>
+                        <li
+                            class="waves-effect pagina  <?php if($page === $x){echo 'active';} elseif($page <  ($x +1) OR $page > ($x +1)){echo'hide';} ?>">
+                            <a href="?page=<?php echo $x; ?>&per-page=15"><?php echo $x; ?></a>
+                        </li>
 
 
 
                         <?php endfor; ?>
-                        <li class="<?php if($page == $y){echo 'hide';} ?>"><a href="?page=<?php echo $page+1; ?>&per-page=15"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="<?php if($page == $y){echo 'hide';} ?>"><a
+                                href="?page=<?php echo $page+1; ?>&per-page=15"><i
+                                    class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>

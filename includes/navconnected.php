@@ -17,11 +17,16 @@
 
             </ul>
 
-            <ul  class="right hide-on-med-and-down">
+            <ul class="right hide-on-med-and-down">
                 <li><a href="index.php" class="dark-text">Home</a></li>
+                <li><a href="dashboard.php" class="dark-text">Mis Dashboards</a></li>
                 <li><a href="cart.php" class="dark-text baskett"><i class="material-icons">shopping_cart</i>
-                        <span class="badge <?php if(!isset($_SESSION['item']) OR $_SESSION['item'] == 0) echo'hide'; ?>"><?= $_SESSION['item']; ?></span></a></li>
-                <li><a href="editprofile" class="nohover dropdown-button" class="dropdown-button" data-activates="dropdown2"><img class="responsive-img" src="src/img/users/default.png" style="max-height:5vh;">
+                        <span
+                            class="badge <?php if(!isset($_SESSION['item']) OR $_SESSION['item'] == 0) echo'hide'; ?>"><?= $_SESSION['item']; ?></span></a>
+                </li>
+                <li><a href="editprofile" class="nohover dropdown-button" class="dropdown-button"
+                        data-activates="dropdown2"><img class="responsive-img" src="src/img/users/default.png"
+                            style="max-height:5vh;">
                         <i class="fa fa-angle-down dark-text right"></i></a></li>
             </ul>
         </div>

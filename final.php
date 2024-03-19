@@ -107,11 +107,14 @@ require $nav;?>
         <div class="col s12 m6">
             <div class="card center-align">
                 <div class="card-image">
-                    <img src="src/img/thanks.png" class="responsive-img" alt="" style="max-height:40vh;">
+                    <img src="src/img/check.png" class="responsive-img" alt=""
+                        style="height:250px; width:250px; margin-left:auto; margin-right:auto;">
                 </div>
                 <div class="card-content center-align">
-                    <h5>Thank you for your purchase</h5>
-                    <p>Your order is on its way Dear : <h5 class="green-text"><?php echo"$firstname_sess". " " . "$lastname_sess";  ?></h5></p>
+                    <h5>Muchas Gracias por elegirnos</h5>
+                    <p>Tu orden esta en desarrollo y análisis
+                    <h5 class="green-text"><?php echo"$firstname_sess". " " . "$lastname_sess";  ?></h5>
+                    </p>
                 </div>
             </div>
 

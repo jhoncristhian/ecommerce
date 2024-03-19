@@ -30,16 +30,16 @@ require $nav;?>
 <div class="container scroll info">
     <table class="highlight">
         <thead>
-        <tr>
-            <th data-field="name">Item Name</th>
-            <th data-field="category">Category</th>
-            <th data-field="price">Price</th>
-            <th data-field="quantity">Quantity</th>
-            <th data-field="total">Total</th>
-        </tr>
+            <tr>
+                <th data-field="name">Item Name</th>
+                <th data-field="category">Category</th>
+                <th data-field="price">Price</th>
+                <th data-field="quantity">Request</th>
+                <th data-field="total">Total</th>
+            </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
         include 'db.php';
         //get products
         $queryproduct = "SELECT product.name as 'name',
@@ -59,20 +59,20 @@ WHERE command.id_product = product.id AND product.id_category = category.id AND 
                 $price_product = $rowproduct['price'];
 
                 ?>
-                <tr>
-                    <td><?= $name_product; ?></td>
-                    <td><?= $category_product; ?></td>
-                    <td><?= $price_product; ?></td>
-                    <td><?= $quantity_product; ?></td>
-                    <td><?= $price_product*$quantity_product; ?></td>
-                    <td><a href="deletecommand.php?id=<?= $id_productdb; ?>"><i class="material-icons red-text">close</i></a></td>
-                </tr>
+            <tr>
+                <td><?= $name_product; ?></td>
+                <td><?= $category_product; ?></td>
+                <td><?= $price_product; ?></td>
+                <td><?= $quantity_product; ?></td>
+                <td><?= $price_product*$quantity_product; ?></td>
+                <td><a href="deletecommand.php?id=<?= $id_productdb; ?>"><i
+                            class="material-icons red-text">close</i></a></td>
+            </tr>
             <?php }}?>
         </tbody>
     </table>
     <div class="right-align">
-        <a href="checkout.php"
-           class='btn-large button-rounded waves-effect waves-light'>
+        <a href="checkout.php" class='btn-large button-rounded waves-effect waves-light'>
             Check out <i class="material-icons right">payment</i></a>
     </div>
 </div>
